@@ -1,0 +1,33 @@
+{
+  "name": "any-schema-you-like",
+  "version": "0.1.0",
+  "description": "Save multiple schemas and decide which one use to serialize the payload Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tap test.js"
+  },
+  "keywords": [
+    "fastify",
+    "schema",
+    "multiple"
+  ],
+  "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastify/any-schema-you-like.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fastify/any-schema-you-like/issues"
+  },
+  "homepage": "https://github.com/fastify/any-schema-you-like#readme",
+  "dependencies": {
+    "fast-json-stringify": "^0.15.1",
+    "fastify-plugin": "^0.1.1"
+  },
+  "devDependencies": {
+    "fastify": "^0.34.0",
+    "standard": "^10.0.3",
+    "tap": "^10.7.3"
+  }
+}
