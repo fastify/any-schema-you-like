@@ -1,5 +1,7 @@
 # any-schema-you-like
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fastify/any-schema-you-like.svg)](https://greenkeeper.io/)
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  [![Build Status](https://travis-ci.org/fastify/any-schema-you-like.svg?branch=master)](https://travis-ci.org/fastify/any-schema-you-like)
 
 Save multiple schemas and decide which one use to serialize the payload.  
