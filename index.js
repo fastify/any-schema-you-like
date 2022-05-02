@@ -19,7 +19,7 @@ function plugin (fastify, opts, next) {
 }
 
 function createStore (schemas) {
-  const store = {}
+  const store = Object.create(null)
   for (var i = 0; i < schemas.length; i++) {
     var id = schemas[i].id
     if (store[id] !== undefined) {
