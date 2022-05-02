@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/fastify/any-schema-you-like#readme",
   "dependencies": {
-    "fast-json-stringify": "^1.1.0",
+    "fast-json-stringify": "^3.1.0",
     "fastify-plugin": "^0.2.1"
   },
   "devDependencies": {
