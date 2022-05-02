@@ -1,6 +1,8 @@
 # any-schema-you-like
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  [![Build Status](https://travis-ci.org/fastify/any-schema-you-like.svg?branch=master)](https://travis-ci.org/fastify/any-schema-you-like)
+[![NPM version](https://img.shields.io/npm/v/any-schema-you-like.svg?style=flat)](https://www.npmjs.com/package/any-schema-you-like)
+![CI workflow](https://github.com/fastify/any-schema-you-like/workflows/CI%20workflow/badge.svg)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
 
 Save multiple schemas and decide which one use to serialize the payload.  
 Internally uses [`fast-json-stringify`](https://github.com/fastify/fast-json-stringify) to compile the schemas in extremely fast serialization functions, with all the benefits given by the library, such as preventing the leaking of sensitive data.
