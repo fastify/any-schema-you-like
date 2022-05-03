@@ -30,4 +30,7 @@ function createStore (schemas) {
   return store
 }
 
-module.exports = fp(plugin)
+module.exports = fp(plugin, {
+  fastify: '3.x',
+  name: 'any-schema-you-like'
+})
