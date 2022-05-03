@@ -75,3 +75,46 @@ test('Schema with same id', t => {
 
   fastify.close()
 })
+
+test('Client supplies `toString`, `__proto__` and `constructor` when no there is no schema with these ids', t => {
+  t.plan(3)
+
+  const fastify = Fastify()
+  fastify.register(anySchema, {
+    schemas: []
+  })
+
+  const expectedPayload = { hello: 'world' }
+
+  fastify.get('/:schema', (req, reply) => {
+    reply
+      .schema(req.params.schema)
+      .send(expectedPayload)
+  })
+
+  fastify.inject({
+    url: '/toString',
+    method: 'GET'
+  }, res => {
+    const payload = JSON.parse(res.payload)
+    t.deepEqual(payload, expectedPayload)
+
+    fastify.inject({
+      url: '/__proto__',
+      method: 'GET'
+    }, res => {
+      const payload = JSON.parse(res.payload)
+      t.deepEqual(payload, expectedPayload)
+
+      fastify.inject({
+        url: '/constructor',
+        method: 'GET'
+      }, res => {
+        const payload = JSON.parse(res.payload)
+        t.deepEqual(payload, expectedPayload)
+
+        fastify.close()
+      })
+    })
+  })
+})

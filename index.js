@@ -10,7 +10,7 @@ function plugin (fastify, opts, next) {
   next()
 
   function schema (id) {
-    var stringify = store[id]
+    const stringify = store[id]
     if (stringify === undefined) {
       return this
     }
@@ -19,9 +19,9 @@ function plugin (fastify, opts, next) {
 }
 
 function createStore (schemas) {
-  const store = {}
-  for (var i = 0; i < schemas.length; i++) {
-    var id = schemas[i].id
+  const store = Object.create(null)
+  for (let i = 0; i < schemas.length; i++) {
+    const id = schemas[i].id
     if (store[id] !== undefined) {
       return new Error(`Schema with id '${id}' is already defined`)
     }
