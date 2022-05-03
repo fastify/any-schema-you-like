@@ -9,7 +9,7 @@ Internally uses [`fast-json-stringify`](https://github.com/fastify/fast-json-str
 
 ## Install
 ```
-npm i any-schema-you-like --save
+npm i any-schema-you-like
 ```
 ## Usage
 Register the plugin and pass to it an array of schemas with an id, then use `reply.schema(id)` to decide which schema to use to serialize your data.
