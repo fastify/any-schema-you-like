@@ -4,15 +4,15 @@
 ![CI workflow](https://github.com/fastify/any-schema-you-like/workflows/CI%20workflow/badge.svg)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
 
-Save multiple schemas and decide which one use to serialize the payload.  
+Save multiple schemas and decide which one to use to serialize the payload.  
 Internally uses [`fast-json-stringify`](https://github.com/fastify/fast-json-stringify) to compile the schemas in extremely fast serialization functions, with all the benefits given by the library, such as preventing the leaking of sensitive data.
 
 ## Install
 ```
-npm i any-schema-you-like --save
+npm i any-schema-you-like
 ```
 ## Usage
-Register the plugin and pass to it an array of schemas with an id, the use `reply.schema(id)` to decide which schema use to serialize your data.
+Register the plugin and pass to it an array of schemas with an id, then use `reply.schema(id)` to decide which schema to use to serialize your data.
 ```js
 const fastify = require('fastify')()
 
@@ -47,7 +47,7 @@ fastify.listen(3000, err => {
 ## Acknowledgements
 
 This project is kindly sponsored by:
-- [LetzDoIt](http://www.letzdoitapp.com/)
+- [LetzDoIt](https://www.letzdoitapp.com/)
 
 ## License
 
