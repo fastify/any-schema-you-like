@@ -5,7 +5,7 @@ const test = t.test
 const Fastify = require('fastify')
 const anySchema = require('./index')
 
-test('Basic', t => {
+test('Basic', async t => {
   t.plan(2)
 
   const fastify = Fastify()
@@ -31,22 +31,21 @@ test('Basic', t => {
       .send({ hello: 'world' })
   })
 
-  fastify.inject({
+  const response = await fastify.inject({
     url: '/schema1',
     method: 'GET'
-  }, res => {
-    const payload = JSON.parse(res.payload)
-    t.deepEqual(payload, { hello: 'world' })
-
-    fastify.inject({
-      url: '/schema2',
-      method: 'GET'
-    }, res => {
-      const payload = JSON.parse(res.payload)
-      t.deepEqual(payload, {})
-      fastify.close()
-    })
   })
+
+  const payload = JSON.parse(response.payload)
+  t.same(payload, { hello: 'world' })
+
+  const response2 = await fastify.inject({
+    url: '/schema2',
+    method: 'GET'
+  })
+  const payload2 = JSON.parse(response2.payload)
+  t.same(payload2, {})
+  fastify.close()
 })
 
 test('Schema with same id', t => {
@@ -76,7 +75,7 @@ test('Schema with same id', t => {
   fastify.close()
 })
 
-test('Client supplies `toString`, `__proto__` and `constructor` when no there is no schema with these ids', t => {
+test('Client supplies `toString`, `__proto__` and `constructor` when no there is no schema with these ids', async t => {
   t.plan(3)
 
   const fastify = Fastify()
@@ -92,29 +91,28 @@ test('Client supplies `toString`, `__proto__` and `constructor` when no there is
       .send(expectedPayload)
   })
 
-  fastify.inject({
+  const response = await fastify.inject({
     url: '/toString',
     method: 'GET'
-  }, res => {
-    const payload = JSON.parse(res.payload)
-    t.deepEqual(payload, expectedPayload)
-
-    fastify.inject({
-      url: '/__proto__',
-      method: 'GET'
-    }, res => {
-      const payload = JSON.parse(res.payload)
-      t.deepEqual(payload, expectedPayload)
-
-      fastify.inject({
-        url: '/constructor',
-        method: 'GET'
-      }, res => {
-        const payload = JSON.parse(res.payload)
-        t.deepEqual(payload, expectedPayload)
-
-        fastify.close()
-      })
-    })
   })
+
+  const payload1 = JSON.parse(response.payload)
+  t.same(payload1, expectedPayload)
+
+  const response2 = await fastify.inject({
+    url: '/__proto__',
+    method: 'GET'
+  })
+
+  const payload2 = JSON.parse(response2.payload)
+  t.same(payload2, expectedPayload)
+
+  const response3 = await fastify.inject({
+    url: '/constructor',
+    method: 'GET'
+  })
+  const payload3 = JSON.parse(response3.payload)
+  t.same(payload3, expectedPayload)
+
+  fastify.close()
 })
