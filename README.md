@@ -1,6 +1,6 @@
-# any-schema-you-like
+# @fastify/any-schema
 
-[![NPM version](https://img.shields.io/npm/v/any-schema-you-like.svg?style=flat)](https://www.npmjs.com/package/any-schema-you-like)
+[![NPM version](https://img.shields.io/npm/v/@fastify/any-schema.svg?style=flat)](https://www.npmjs.com/package/@fastify/any-schema)
 ![CI workflow](https://github.com/fastify/any-schema-you-like/workflows/CI%20workflow/badge.svg)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
 
@@ -9,14 +9,14 @@ Internally uses [`fast-json-stringify`](https://github.com/fastify/fast-json-str
 
 ## Install
 ```
-npm i any-schema-you-like
+npm i @fastify/any-schema
 ```
 ## Usage
 Register the plugin and pass to it an array of schemas with an id, then use `reply.schema(id)` to decide which schema to use to serialize your data.
 ```js
 const fastify = require('fastify')()
 
-fastify.register(require('any-schema-you-like'), {
+fastify.register(require('@fastify/any-schema'), {
   schemas: [{
     id: 'schema1',
     type: 'object',
