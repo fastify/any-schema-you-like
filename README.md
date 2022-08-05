@@ -38,7 +38,7 @@ fastify.get('/:schema', (req, reply) => {
     .send({ hello: 'world' })
 })
 
-fastify.listen({port: 3000}, err => {
+fastify.listen({ port: 3000 }, err => {
   if (err) throw err
   console.log(`server listening on ${fastify.server.address().port}`)
 })
