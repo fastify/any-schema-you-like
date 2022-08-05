@@ -21,7 +21,7 @@ function plugin (fastify, opts, next) {
 function createStore (schemas) {
   const store = Object.create(null)
   for (let i = 0; i < schemas.length; i++) {
-    const id = schemas[i].id
+    const id = schemas[i].$id
     if (store[id] !== undefined) {
       return new Error(`Schema with id '${id}' is already defined`)
     }
@@ -31,6 +31,6 @@ function createStore (schemas) {
 }
 
 module.exports = fp(plugin, {
-  fastify: '3.x',
+  fastify: '4.x',
   name: '@fastify/any-schema'
 })

@@ -3,7 +3,7 @@
 const t = require('tap')
 const test = t.test
 const Fastify = require('fastify')
-const anySchema = require('./index')
+const anySchema = require('..')
 
 test('Basic', async t => {
   t.plan(2)
@@ -11,13 +11,13 @@ test('Basic', async t => {
   const fastify = Fastify()
   fastify.register(anySchema, {
     schemas: [{
-      id: 'schema1',
+      $id: 'schema1',
       type: 'object',
       properties: {
         hello: { type: 'string' }
       }
     }, {
-      id: 'schema2',
+      $id: 'schema2',
       type: 'object',
       properties: {
         winter: { type: 'string' }
@@ -55,13 +55,13 @@ test('Schema with same id', t => {
   fastify
     .register(anySchema, {
       schemas: [{
-        id: 'schema1',
+        $id: 'schema1',
         type: 'object',
         properties: {
           hello: { type: 'string' }
         }
       }, {
-        id: 'schema1',
+        $id: 'schema1',
         type: 'object',
         properties: {
           winter: { type: 'string' }
