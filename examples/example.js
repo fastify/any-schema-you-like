@@ -2,15 +2,15 @@
 
 const fastify = require('fastify')()
 
-fastify.register(require('./index'), {
+fastify.register(require('..'), {
   schemas: [{
-    id: 'schema1',
+    $id: 'schema1',
     type: 'object',
     properties: {
       hello: { type: 'string' }
     }
   }, {
-    id: 'schema2',
+    $id: 'schema2',
     type: 'object',
     properties: {
       winter: { type: 'string' }
