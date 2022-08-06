@@ -18,13 +18,13 @@ const fastify = require('fastify')()
 
 fastify.register(require('@fastify/any-schema'), {
   schemas: [{
-    id: 'schema1',
+    $id: 'schema1',
     type: 'object',
     properties: {
       hello: { type: 'string' }
     }
   }, {
-    id: 'schema2',
+    $id: 'schema2',
     type: 'object',
     properties: {
       winter: { type: 'string' }
@@ -38,7 +38,7 @@ fastify.get('/:schema', (req, reply) => {
     .send({ hello: 'world' })
 })
 
-fastify.listen(3000, err => {
+fastify.listen({ port: 3000 }, err => {
   if (err) throw err
   console.log(`server listening on ${fastify.server.address().port}`)
 })

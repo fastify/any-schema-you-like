@@ -3,8 +3,12 @@
   "version": "2.0.0",
   "description": "Save multiple schemas and decide which one use to serialize the payload Edit",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
-    "test": "standard && tap test.js"
+    "lint": "standard",
+    "test": "npm run test:unit && npm run test:typescript",
+    "test:typescript": "tsd",
+    "test:unit": "tap"
   },
   "keywords": [
     "fastify",
@@ -26,9 +30,11 @@
     "fastify-plugin": "^4.0.0"
   },
   "devDependencies": {
-    "fastify": "^3.29.0",
+    "@types/node": "^18.6.4",
+    "fastify": "^4.0.0",
     "standard": "^17.0.0",
-    "tap": "^16.1.0"
+    "tap": "^16.1.0",
+    "tsd": "^0.22.0"
   },
   "publishConfig": {
     "access": "public"
