@@ -1,6 +1,6 @@
 {
   "name": "@fastify/any-schema",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Save multiple schemas and decide which one use to serialize the payload Edit",
   "main": "index.js",
   "types": "types/index.d.ts",
