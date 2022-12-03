@@ -3,7 +3,7 @@
 const fp = require('fastify-plugin')
 const FJS = require('fast-json-stringify')
 
-function plugin (fastify, opts, next) {
+function fastifyAnySchema (fastify, opts, next) {
   const store = createStore(opts.schemas)
   if (store instanceof Error) return next(store)
   fastify.decorateReply('schema', schema)
@@ -30,7 +30,9 @@ function createStore (schemas) {
   return store
 }
 
-module.exports = fp(plugin, {
+module.exports = fp(fastifyAnySchema, {
   fastify: '4.x',
   name: '@fastify/any-schema'
 })
+module.exports.default.fastifyAnySchema = fastifyAnySchema
+module.exports.fastifyAnySchema = fastifyAnySchema
