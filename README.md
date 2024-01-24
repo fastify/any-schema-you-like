@@ -1,7 +1,7 @@
 # @fastify/any-schema
 
 [![NPM version](https://img.shields.io/npm/v/@fastify/any-schema.svg?style=flat)](https://www.npmjs.com/package/@fastify/any-schema)
-![CI workflow](https://github.com/fastify/any-schema-you-like/workflows/CI%20workflow/badge.svg)
+[![CI](https://github.com/fastify/any-schema-you-like/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/fastify/any-schema-you-like/actions/workflows/ci.yml)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
 
 Save multiple schemas and decide which one to use to serialize the payload.  
